@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <BaseResourceFileDirectory Condition=" $(BaseResourceFileDirectory) == '' ">$(MSBuildThisFileDirectory)</BaseResourceFileDirectory>
+    <SharedAssetRoot>$(BaseResourceFileDirectory)Android</SharedAssetRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(SharedAssetRoot)\**\*.cs"
+             Visible="true"
+             Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="**\*.cs" Visible="true" Exclude="bin\**;obj\**" />
+    <None Include="**\*.txt" Visible="true" Exclude="bin\**;obj\**" />
+    <None Include="Properties\AndroidManifest.xml" Visible="true" />
+    <AndroidResource Include="$(SharedAssetRoot)\**\*"
+                     Visible="true"
+                     Link="%(RecursiveDir)%(Filename)%(Extension)"
+                     Exclude="$(SharedAssetRoot)\**\*.cs;$(SharedAssetRoot)\**\.DS_Store" />
+    <AndroidResource Include="Resources\**\*"
+                     Visible="true" />
+  </ItemGroup>
+</Project>

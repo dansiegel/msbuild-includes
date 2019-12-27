@@ -1,0 +1,6 @@
+<Project>
+  <ItemGroup>
+    <PackageReference Update="Xamarin.Forms" Version="$(FormsVersion)" />
+    <PackageReference Update="Xamarin.Essentials" Version="$(EssentialsVersion)" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <FormsVersion>4.3.0.908675</FormsVersion>
+    <EssentialsVersion>1.3.1</EssentialsVersion>
+  </PropertyGroup>
+
+  <Import Condition="$(TargetFrameworkIdentifier) == 'MonoAndroid'"
+          Project="$(MSBuildThisFileDirectory)resources\Android.props" />
+
+  <Import Condition="$(TargetFrameworkIdentifier) == 'Xamarin.iOS'"
+          Project="$(MSBuildThisFileDirectory)resources\iOS.props" />
+</Project>

@@ -1,0 +1,22 @@
+<Project>
+  <PropertyGroup>
+    <BaseResourceFileDirectory Condition=" $(BaseResourceFileDirectory) == '' ">$(MSBuildThisFileDirectory)</BaseResourceFileDirectory>
+    <SharedAssetRoot>$(BaseResourceFileDirectory)iOS</SharedAssetRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="**\*.cs" Visible="true" Exclude="bin\**;obj\**" />
+    <None Include="**\*.plist" Visible="true" Exclude="bin\**;obj\**" LogicalName="%(Filename)%(Extension)"  />
+    <ImageAsset Include="$(SharedAssetRoot)\Assets.xcassets\AppIcon.appiconset\*"
+                Visible="false"
+                Link="Assets.xcassets\AppIcon.appiconset\%(Filename)%(Extension)" />
+    <ImageAsset Include="$(SharedAssetRoot)\Resources\Media.xcassets\**\*"
+                Visible="false"
+                Link="Resources\Media.xcassets\%(RecursiveDir)%(Filename)%(Extension)" />
+    <BundleResource Include="$(SharedAssetRoot)\Resources\*.png"
+                    Visible="true"
+                    Link="Resources\%(Filename)%(Extension)" />
+    <InterfaceDefinition Include="$(SharedAssetRoot)\Resources\LaunchScreen.storyboard"
+                         Visible="true"
+                         Link="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+</Project>
